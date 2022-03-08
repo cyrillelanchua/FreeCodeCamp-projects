@@ -1,3 +1,4 @@
+import math
 class Category:
   def __init__(self,category):
     self.category = category
@@ -71,7 +72,7 @@ def create_spend_chart(categories):
     total_spent += spent_per_category[category.category] 
   percentage = {}
   for category in spent_per_category.keys():
-    percentage[category] = round((spent_per_category[category]/total_spent)*100, -1)
+    percentage[category] = math.floor((spent_per_category[category]/total_spent)*100)
   #creation of the chart
   for percent in range(100,-10,-10):
     if percent == 100:
@@ -90,7 +91,7 @@ def create_spend_chart(categories):
   string += "    "
   string += padding[0:(len(categories)*3)+1] + "\n"
   #creation of the labels
-  for i in range(len(max(percentage.keys()))):
+  for i in range(len(max(list(percentage.keys()), key=len))):
     string += "     "
     key = list(percentage.keys())
     for j in range(len(categories)):
@@ -99,21 +100,28 @@ def create_spend_chart(categories):
       else:
         string += "   "
     if i == len(max(percentage.keys())) -1:
+      string += "\n"
       continue
     else:
       string += "\n"
-  return string
+  return string.rstrip("\n")
 
 
 food = Category("Food")
-entertainment = Category("entertainment")
-food.deposit(10.05, "deposit")
+entertainment = Category("Entertainment")
+business = Category("Business")
+
 food.deposit(900, "deposit")
-food.withdraw(45.67, "milk, cereal, eggs, bacon, bread")
-food.transfer(20, entertainment)
-entertainment.deposit(200)
-entertainment.withdraw(200)
-print(food.ledger)
+food.withdraw(105.55, "milk, cereal, eggs, bacon, bread")
+entertainment.deposit(900, "deposit")
+entertainment.withdraw(33.40, "Movies")
+business.deposit(900, "salary")
+business.withdraw(10.99, "commute")
+
 print(food)
-print(food.check_funds(20))
-print(create_spend_chart([food,entertainment]))
+print("\n")
+print(entertainment)
+print("\n")
+print(business)
+print("\n")
+print(create_spend_chart([business,food,entertainment]))
