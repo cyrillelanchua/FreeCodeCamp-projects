@@ -19,7 +19,7 @@ def arithmetic_arranger(problems, display=False):
             num1 = int(string[0])
             num2 = int(string[2])
         except:
-            return "Error: Numbers must only contain digits." 
+            return "Error: Numbers must only contain digits."  
         if string[1] == "+":
             answer = num1+num2
         elif string[1] == "-":
