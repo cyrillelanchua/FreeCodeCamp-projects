@@ -24,3 +24,14 @@ Input Current time, time to be added (hour:minute), day of the week
 Output
 
 ![alt text](https://github.com/cyrillelanchua/FreeCodeCamp-projects/blob/main/Time-Calculator/output.jfif)
+
+# Budget-app
+Budget function based on the problem on FreeCodeCamp
+
+Input
+
+![alt text](https://github.com/cyrillelanchua/FreeCodeCamp-projects/blob/main/Budget/input.JPG)
+
+Output
+
+![alt text](https://github.com/cyrillelanchua/FreeCodeCamp-projects/blob/main/Budget/output.JPG)
